@@ -1,0 +1,16 @@
+<div class="caution">
+    <% if @errors_list %>
+      <% if @errors_list.errors.any? %>
+        <%= @errors_list.errors.count %>件のerrorが発生しました。<br>
+        <% @errors_list.errors.full_messages.each do |error| %>
+          <%= error %><br>
+        <% end %>
+      <% end %>
+    <% end %>
+</div>
+
+<p><strong>Title:</strong><%= @books.title %></p>
+<p><strong>Body:</strong><%= @books.body %></p>
+<%= link_to 'Edit', edit_book_path(@books.id) %>
+|
+<%= link_to 'Back',books_path %>
